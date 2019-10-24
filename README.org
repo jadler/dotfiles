@@ -44,7 +44,11 @@ Update the script with information pertinent to your repository and the git dire
   fi
 #+end_src
 
-After running the script, add the alias (src_sh[:exports code]{alias dotfile='git --git-dir=${HOME}/.dotfiles --work-tree=${HOME}'}) created in the script to make future operations easier.
+After running the script, add the alias created in the script to make future operations easier.
+
+#+begin_src sh :tangle no
+  alias dotfile='git --git-dir=${HOME}/.dotfiles --work-tree=${HOME}'
+#+end_src
 
 For those who are facing the problem: =fatal: ambiguous argument 'HEAD': unknown revision or path not in the working tree.= run the following command:
 
