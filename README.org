@@ -1,0 +1,53 @@
+#+TITLE: dotfiles
+#+AUTHOR: Jaguaraquem Adler Reinaldo
+#+DATE: <2019-10-23 qua>
+
+* Table of contents                                                     :toc:
+- [[#description][Description]]
+- [[#how-to-manager-dotfiles][How to manager dotfiles]]
+- [[#iniciando-um-repositório][Iniciando um repositório]]
+
+* Description
+
+This repository manages jadler's dotfiles.
+
+* How to manager dotfiles
+
+I recently looked for a way to manage my dotfiles. I discovered [[https://www.gnu.org/software/stow/][stow]], but at the same time I discovered this video ([[https://www.youtube.com/watch?v=tBoLDpTWVOM][Git Bare Repository - A Better Way to Manager dotfiles]]) on youtube and thought this was a more interesting and elegant solution that I decided to try myself.
+
+* Iniciando um repositório
+
+Since it is not possible to clone a repository into a nonempty directory, the process will be the same for those starting out with a new repository or for those who already have a populated one.
+
+*NOTE:* This operation will overwrite any file with the same name you have in your working directory.
+
+Update the script with information pertinent to your repository and the git directory location and be sure to give the script execute permissions.
+
+#+begin_src bash :tangle install.sh
+  #!/bin/sh
+
+  _GITDIR=${HOME}/.dotfiles
+  _WORKTREE=${HOME}
+  _REPOSITORY=git@github.com:jadler/dotfiles.git # your github dotfile repository
+
+  git init --separate-git-dir=${_GITDIR} ${_WORKTREE}
+  rm ${_WORKTREE}/.git
+
+  alias dotfiles='git --git-dir=${_GITDIR} --work-tree=${_WORKTREE}'
+
+  dotfiles config --local status.showUntrackedFiles no
+  dotfiles remote add origin ${_REPOSITORY}
+  dotfiles fetch
+
+  if dotfiles show-ref -q --heads master; then
+      dotfiles checkout -t origin/master -f
+  fi
+#+end_src
+
+After running the script, add the alias (src_sh[:exports code]{alias dotfile='git --git-dir=${HOME}/.dotfiles --work-tree=${HOME}'}) created in the script to make future operations easier.
+
+For those who are facing the problem: =fatal: ambiguous argument 'HEAD': unknown revision or path not in the working tree.= run the following command:
+
+#+begin_src sh :tangle no
+  dotfile commit --allow-empty -n -m "First commit"
+#+end_src
