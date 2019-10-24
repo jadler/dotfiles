@@ -1,0 +1,10 @@
+export GPG_TTY=$(tty)
+gpg-connect-agent updatestartuptty /bye > /dev/null
+
+## Alias
+alias grep='grep --color=always'
+alias pacman='sudo pacman --color always'
+alias repo-add='repo-add -R -n -d /var/lib/repository/jadler.db.tar.xz'
+alias repo-remove='repo-remove -R /var/lib/repository/jadler.db.tar.xz'
+alias tsyu='trizen -Syu'
+alias dotfiles='git --git-dir=/home/jaguar/.dotfiles --work-tree=/home/jaguar'
