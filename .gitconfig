@@ -1,0 +1,26 @@
+[user]
+	name = Jaguaraquem Adler Reinaldo
+	email = jaguar.adler@gmail.com
+[core]
+	excludesfile = /home/jaguar/.gitignore
+	quotepath = off
+	editor = emacsclient -c -a "emacs"
+	autocrlf = input
+	safecrlf = false
+[alias]
+	history = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset' --abbrev-commit --date=short
+	unpushed = log --graph --decorate --oneline --abbrev-commit --all @{u}..
+[push]
+	default = simple
+	followTags = true
+[branch "master"]
+	mergeoptions = --no-ff
+[branch "develop"]
+	mergeoptions = --no-ff
+[merge]
+	branchdesc = true
+[commit]
+	template = /home/jaguar/.gitmessage
+	gpgSign = true
+[pull]
+	ff = yes
