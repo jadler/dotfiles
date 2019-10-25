@@ -5,7 +5,7 @@
 * Table of contents                                                     :toc:
 - [[#description][Description]]
 - [[#how-to-manager-dotfiles][How to manager dotfiles]]
-- [[#iniciando-um-repositório][Iniciando um repositório]]
+- [[#initializing-the-repository][Initializing the repository]]
 
 * Description
 
@@ -15,7 +15,7 @@ This repository manages jadler's dotfiles.
 
 I recently looked for a way to manage my dotfiles. I discovered [[https://www.gnu.org/software/stow/][stow]], but at the same time I discovered this video ([[https://www.youtube.com/watch?v=tBoLDpTWVOM][Git Bare Repository - A Better Way to Manager dotfiles]]) on youtube and thought this was a more interesting and elegant solution that I decided to try myself.
 
-* Iniciando um repositório
+* Initializing the repository
 
 Since it is not possible to clone a repository into a nonempty directory, the process will be the same for those starting out with a new repository or for those who already have a populated one.
 
