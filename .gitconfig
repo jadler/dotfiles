@@ -10,6 +10,7 @@
 [alias]
 	history = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset' --abbrev-commit --date=short
 	unpushed = log --graph --decorate --oneline --abbrev-commit --all @{u}..
+    dotfiles = !git --git-dir=${HOME}/.dotfiles --work-tree=${HOME}
 [push]
 	default = simple
 	followTags = true
