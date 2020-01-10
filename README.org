@@ -23,9 +23,7 @@ Since it is not possible to clone a repository into a nonempty directory, the pr
 
 Update the script with information pertinent to your repository and the git directory location and be sure to give the script execute permissions.
 
-#+begin_src bash :tangle install.sh
-  #!/bin/sh
-
+#+begin_src bash :tangle install.sh :shebang "#!/usr/bin/sh"
   _GITDIR=${HOME}/.dotfiles
   _WORKTREE=${HOME}
   _REPOSITORY=git@github.com:jadler/dotfiles.git # your github dotfile repository
